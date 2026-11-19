@@ -23,7 +23,7 @@ export function parseLandingPage(value) {
 }
 
 export async function getLandingPage(signal) {
-  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'https://bcknd.wegz.org'
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'https://api-admin1.wegz.org/'
   const endpoint =
     import.meta.env.VITE_LANDING_PAGE_API_URL ||
     `${apiBaseUrl.replace(/\/+$/, '')}/api/public/landing`
@@ -36,7 +36,7 @@ export function getPublicAssetUrl(path) {
   if (typeof path !== 'string' || path.trim() === '') return undefined
 
   try {
-    const baseUrl = import.meta.env.VITE_API_BASE_URL || 'https://bcknd.wegz.org'
+    const baseUrl = import.meta.env.VITE_API_BASE_URL || 'https://api-admin1.wegz.org/'
     return new URL(path, baseUrl).toString()
   } catch {
     throw new Error(`Invalid asset URL received from the landing page API: "${path}".`)

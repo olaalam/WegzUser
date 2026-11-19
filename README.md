@@ -8,8 +8,8 @@ only the available section renderers are defined in the frontend.
 
 1. Optionally copy `.env.example` to `.env` to override the backend URLs. By
    default, the landing page is requested from
-   `https://bcknd.wegz.org/api/public/landing`, and `VITE_API_BASE_URL` defaults
-   to `https://bcknd.wegz.org`.
+   `https://api-admin1.wegz.org//api/public/landing`, and `VITE_API_BASE_URL` defaults
+   to `https://api-admin1.wegz.org/`.
 2. Run `npm install`.
 3. Run `npm run dev`.
 
