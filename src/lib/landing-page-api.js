@@ -1,4 +1,5 @@
 import { apiClient } from './api-client'
+import { getApiBaseUrl } from './site-config'
 
 function asObject(value, path) {
   if (typeof value !== 'object' || value === null || Array.isArray(value)) {
@@ -23,7 +24,7 @@ export function parseLandingPage(value) {
 }
 
 export async function getLandingPage(signal) {
-  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'https://api-admin1.wegz.org/'
+  const apiBaseUrl = getApiBaseUrl()
   const endpoint =
     import.meta.env.VITE_LANDING_PAGE_API_URL ||
     `${apiBaseUrl.replace(/\/+$/, '')}/api/public/landing`
@@ -36,7 +37,7 @@ export function getPublicAssetUrl(path) {
   if (typeof path !== 'string' || path.trim() === '') return undefined
 
   try {
-    const baseUrl = import.meta.env.VITE_API_BASE_URL || 'https://api-admin1.wegz.org/'
+    const baseUrl = getApiBaseUrl()
     return new URL(path, baseUrl).toString()
   } catch {
     throw new Error(`Invalid asset URL received from the landing page API: "${path}".`)

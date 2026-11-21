@@ -3,10 +3,13 @@ import { useQuery } from '@tanstack/react-query'
 import { toast } from 'sonner'
 import { getApiErrorMessage } from '../lib/api-client'
 import { getLandingPage } from '../lib/landing-page-api'
+import { getTenantSubdomain } from '../lib/site-config'
 
 export function useLandingPage() {
+  const tenant = getTenantSubdomain()
+
   const query = useQuery({
-    queryKey: ['landing-page'],
+    queryKey: ['landing-page', tenant],
     queryFn: ({ signal }) => getLandingPage(signal),
   })
 
